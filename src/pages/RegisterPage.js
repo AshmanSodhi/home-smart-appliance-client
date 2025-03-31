@@ -3,19 +3,29 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { validateRegistrationForm } from '../utils/validationUtils';
+import Axios from 'axios'; // Importing Axios
 import '../styles/styles.css'; 
-
 
 function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [pwd, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleRegistration = () => {
-    if (validateRegistrationForm(name, email, password)) {
-      // Successful validation
-      navigate('/reg-success'); // You'll need to create this route/page
+    if (validateRegistrationForm(name, email, pwd)) {
+      // Create a new user object
+      const newUser = { name, email, pwd };
+
+      // Send the POST request to add the user to db.json
+      Axios.post('http://localhost:3003/users', newUser)
+        .then(response => {
+          console.log('User registered:', response.data);
+          navigate('/reg-success'); // Redirect to success page
+        })
+        .catch(error => {
+          console.error('Error registering user:', error);
+        });
     }
   };
 
@@ -50,7 +60,7 @@ function RegisterPage() {
             type="password" 
             id="password" 
             name="password" 
-            value={password}
+            value={pwd}
             onChange={(e) => setPassword(e.target.value)}
             required 
           />

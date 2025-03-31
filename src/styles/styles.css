@@ -286,4 +286,90 @@ body {
           border-radius: 10px;
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
+
+        .scheduler-container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+        
+        .current-time {
+          font-size: 16px;
+          color: #555;
+          margin-bottom: 20px;
+        }
+        
+        .schedule-form {
+          background-color: #f5f5f5;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 30px;
+        }
+        
+        .form-group {
+          margin-bottom: 15px;
+        }
+        
+        .form-group label {
+          display: block;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+        
+        .form-control {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        
+        .btn {
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        .add-btn {
+          background-color: #4CAF50;
+          color: white;
+          margin-top: 10px;
+        }
+        
+        .remove-btn {
+          background-color: #f44336;
+          color: white;
+        }
+        
+        .schedules-table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        
+        .schedules-table th, 
+        .schedules-table td {
+          padding: 12px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+        
+        .schedules-table th {
+          background-color: #f2f2f2;
+        }
+        
+        .status-badge {
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-weight: bold;
+        }
+        
+        .status-on {
+          background-color: #4CAF50;
+          color: white;
+        }
+        
+        .status-off {
+          background-color: #f44336;
+          color: white;
+        }
         

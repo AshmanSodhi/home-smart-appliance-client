@@ -167,7 +167,9 @@ const DataAnalysisPage = () => {
           </div>
         </div>
       ) : (
-        <p>No data available for the selected time frame.</p>
+        <div className="chart-container">
+        <p>No data available for the selected device.</p>
+        </div>
       )}
     </div>
   );

@@ -10,6 +10,7 @@ import RegistrationSuccessPage from './pages/RegistrationSuccess';
 import LoginSuccessPage from './pages/LoginSuccess';
 import ApplianceDashboard from './pages/DashboardPage';
 import DataAnalysis from './pages/DeviceAnalyticsPage';
+import SmartScheduler from './pages/Scheduler';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/reg-success" element={<RegistrationSuccessPage />} />
         <Route path="/dashboard" element={<ApplianceDashboard />} />
         <Route path="/data-analysis/:id" element={<DataAnalysis />}/>
+        <Route path="/scheduler" element={<SmartScheduler />}/>
       </Routes>
     </Router>
   );
