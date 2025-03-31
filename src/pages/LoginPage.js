@@ -4,18 +4,33 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { validateLoginForm } from '../utils/validationUtils';
 import '../styles/styles.css'; 
+import Axios from 'axios';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (validateLoginForm(email, password)) {
-      // Successful validation
-      navigate('/login-success'); // You'll need to create this route/page
+  const handleLogin = async () => {
+    if (!validateLoginForm(email, password)) return;
+  
+    try {
+      const response = await Axios.get('http://localhost:3003/users');
+      const users = response.data;
+      
+      const user = users.find(user => user.email === email && user.pwd === password);
+  
+      if (user) {
+        navigate('/dashboard'); // Navigate to the dashboard if login is successful
+      } else {
+        alert('Invalid email or password. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      alert('An error occurred while logging in. Please try again later.');
     }
   };
+  
 
   return (
     <div>
